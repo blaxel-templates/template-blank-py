@@ -1,0 +1,12 @@
+type = "agent"
+
+[runtime]
+generation = "mk3"
+memory = 4096
+
+[env]
+NON_SENSITIVE_ENV = "NON_SENSITIVE_ENV"
+
+[entrypoint]
+prod = ".venv/bin/python3 -m src"
+dev = ".venv/bin/uvicorn src.main:app --reload --port 1338 --host 0.0.0.0 --loop asyncio"

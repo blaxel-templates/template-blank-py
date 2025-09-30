@@ -2,7 +2,7 @@ import os
 from contextlib import asynccontextmanager
 from logging import getLogger
 
-from fastapi import FastAPI
+from fastapi import FastAPI, Request
 from fastapi.responses import StreamingResponse
 from opentelemetry.instrumentation.fastapi import FastAPIInstrumentor
 
@@ -18,6 +18,12 @@ async def lifespan(app: FastAPI):
 
 
 app = FastAPI(lifespan=lifespan)
+
+@app.middleware("http")
+async def log_request(request: Request, call_next):
+    logger.info(f"{request.method} {request.url}")
+    response = await call_next(request)
+    return response
 
 @app.post("/")
 async def handle_request():

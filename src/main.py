@@ -27,6 +27,15 @@ async def log_request(request: Request, call_next):
 
 @app.post("/")
 async def handle_request():
-    return StreamingResponse("Hello World", media_type="text/event-stream")
+    # Headers to disable proxy/CDN buffering (CloudFront, nginx, etc.)
+    return StreamingResponse(
+        "Hello World",
+        media_type="text/event-stream",
+        headers={
+            "Cache-Control": "no-cache, no-transform",
+            "X-Accel-Buffering": "no",
+            "Connection": "keep-alive",
+        },
+    )
 
 FastAPIInstrumentor.instrument_app(app, exclude_spans=["receive", "send"])

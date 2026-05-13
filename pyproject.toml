@@ -3,7 +3,7 @@ name = "template-blank-py"
 version = "0.1.0"
 description = ""
 readme = "README.md"
-requires-python = ">=3.10"
+requires-python = ">=3.10,<3.14"
 dependencies = [
     "asgi-correlation-id>=4.3.4",
     "blaxel[telemetry]==0.2.39",

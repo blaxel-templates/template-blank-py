@@ -177,7 +177,7 @@ If you need help with this template:
 
 - [Submit an issue](https://github.com/blaxel-templates/template-blank-py/issues) for bug reports or feature requests
 - Visit the [Blaxel Documentation](https://docs.blaxel.ai) for platform guidance
-- Join our [Discord Community](https://discord.gg/G3NqzUPcHP) for real-time assistance
+- Join our [Discord Community](https://discord.gg/CsWKUZUHFQ) for real-time assistance
 
 ## 📄 License
 
